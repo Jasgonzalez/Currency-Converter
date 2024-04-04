@@ -1,8 +1,14 @@
 from tkinter import *
 import requests
+import os
 
-
-
+# Finds image path
+def imagePath(directory, imageName):
+    
+    for root, dirs, files in os.walk(directory):
+        if imageName in files:
+            return os.path.join(root, imageName)
+    return None
 
 # A function that gets the number from entry and then converts it 
 def conversion(currencyEntry, dollarEntry, resultLabel):
@@ -47,11 +53,16 @@ def main():
     root.title('Currency Converter')
     root.config(bg= 'gray')
     global Dragonimg
-    Dragonimg = PhotoImage(file="/Users/jeg/Documents/CMSC 254/Currency converter/Japanese-Dragon-Transparent.png")
-    
-    Label(root, image=Dragonimg, bg= "gray").place(x=-90, y=50)
-    
-    Label(root, image=Dragonimg, bg= "gray").place(x=550, y=50)
+
+    searchDirectory = os.path.abspath("./images")
+    pngName = "japDragon.png"
+    path = imagePath(searchDirectory, pngName) # imagePath(directory you want to search in, what you are searching for)
+    if path:
+        Dragonimg = PhotoImage(file = path)
+        Label(root, image=Dragonimg, bg= "gray").place(x=-90, y=50)
+        Label(root, image=Dragonimg, bg= "gray").place(x=550, y=50)
+    else:
+        print("Image not found")
 
     # Create a label with some text
     titleInfo = Label(root, text="Currency Converter",bg='gray',fg='orange', font=('Microsoft YaHei UI Light' ,30, 'bold'))
