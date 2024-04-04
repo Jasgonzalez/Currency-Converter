@@ -52,10 +52,11 @@ def main():
     root.geometry('1000x500')
     root.title('Currency Converter')
     root.config(bg= 'gray')
-    global Dragonimg
 
-    searchDirectory = os.path.abspath("./images")
-    pngName = "japDragon.png"
+
+
+    searchDirectory = os.path.abspath("./images") # Finds path of images directory
+    pngName = "japDragon.png" # What we are looking for in searchDirectory
     path = imagePath(searchDirectory, pngName) # imagePath(directory you want to search in, what you are searching for)
     if path:
         Dragonimg = PhotoImage(file = path)
