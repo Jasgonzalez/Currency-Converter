@@ -2,6 +2,12 @@ from tkinter import *
 import requests
 import os
 
+'''
+Things we could do:
+Make backgrounds of widgets transparent
+Fit images better into screen width/height either by scaling the image or changing the window dimensions 
+'''
+
 # Finds image path
 def imagePath(directory, imageName):
     
