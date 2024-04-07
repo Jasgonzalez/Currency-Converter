@@ -4,8 +4,12 @@ import os
 
 '''
 Things we could do:
-Make backgrounds of widgets transparent
-Fit images better into screen width/height either by scaling the image or changing the window dimensions 
+make backgrounds of widgets transparent
+fit images better into screen width/height either by scaling the image or changing the window dimensions 
+a favorite currencies list
+multi-currency converter to look at multiple conversions
+offline conversion mode using last fetched rates
+enhanced user interface
 '''
 
 # Finds image path
