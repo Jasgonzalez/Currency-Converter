@@ -58,6 +58,8 @@ def main():
     root.geometry('1000x500')
     root.title('Currency Converter')
     root.config(bg= 'gray')
+    root.resizable(False,False)
+
 
 
 
@@ -66,8 +68,9 @@ def main():
     path = imagePath(searchDirectory, pngName) # imagePath(directory you want to search in, what you are searching for)
     if path:
         Dragonimg = PhotoImage(file = path)
-        Label(root, image=Dragonimg, bg= "gray").place(x=-90, y=50)
+        Label(root, image=Dragonimg, bg= "gray").place(x=-50, y=50)
         Label(root, image=Dragonimg, bg= "gray").place(x=550, y=50)
+
     else:
         print("Image not found")
 
