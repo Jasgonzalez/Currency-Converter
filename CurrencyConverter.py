@@ -1,20 +1,23 @@
-from tkinter import *
+from tkinter import * 
 import requests
 import os
 
 '''
 Things we could do:
-Make backgrounds of widgets transparent
-Fit images better into screen width/height either by scaling the image or changing the window dimensions 
+make backgrounds of widgets transparent
+fit images better into screen width/height either by scaling the image or changing the window dimensions 
+a favorite currencies list
+multi-currency converter to look at multiple conversions
+offline conversion mode using last fetched rates
+enhanced user interface
 '''
 
 # Finds image path
 def imagePath(directory, imageName):
-    
     for root, dirs, files in os.walk(directory):
         if imageName in files:
             return os.path.join(root, imageName)
-    return None
+    return 'Image not found.'
 
 # A function that gets the number from entry and then converts it 
 def conversion(currencyEntry, dollarEntry, resultLabel):
@@ -66,11 +69,11 @@ def main():
     searchDirectory = os.path.abspath("./images") # Finds path of images directory
     pngName = "japDragon.png" # What we are looking for in searchDirectory
     path = imagePath(searchDirectory, pngName) # imagePath(directory you want to search in, what you are searching for)
-    if path:
+    
+    if path: # if you find a path then upload the images onto the screen
         Dragonimg = PhotoImage(file = path)
         Label(root, image=Dragonimg, bg= "gray").place(x=-50, y=50)
         Label(root, image=Dragonimg, bg= "gray").place(x=550, y=50)
-
     else:
         print("Image not found")
 
@@ -99,7 +102,7 @@ def main():
     resultLabel.pack()
 
     # the lambda function allows us to pass information through the function. 
-    conversionButton = Button(root, text='Convert',font=('Microsoft YaHei UI Light', 10), command= lambda: conversion(currencyEntry, dollarEntry, resultLabel))
+    conversionButton = Button(root, text='Convert',font=('Microsoft YaHei UI Light', 10), command= lambda: conversion(currencyEntry, dollarEntry, resultLabel), fg = 'green', bg = 'blue')
     conversionButton.pack()
 
     currencyCodesList = ('Currency Codes of the 10 largest economies: \n \n United States: USD (United States Dollar) \n China, People\'s Republic of: CNY (Chinese Yuan Renminbi) \n Germany: EUR (Euro) \n Japan: JPY (Japanese Yen) \n India: INR (Indian Rupee) \n United Kingdom: GBP (British Pound Sterling) \n France: EUR (Euro) \n Italy: EUR (Euro) \n Brazil: BRL (Brazilian Real) \n Canada: CAD (Canadian Dollar)')
